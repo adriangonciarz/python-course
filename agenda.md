@@ -1,7 +1,5 @@
 ### Agenda
-
 The main goal of this course is to get users up and running with Python in a hands-on approach. Not much theory, practical knowledge is praised. This course is oriented towards experienced programmers and is aiming for learning Python syntax and environment in a comfortable manner then diving into "pythonic" way of doing stuff which is extremely useful once mastered.
-
 1. Introduction
 1. Getting started
     * Preparing working environment
