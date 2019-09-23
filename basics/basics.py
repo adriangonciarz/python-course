@@ -146,3 +146,13 @@ print(new_list)
 
 new_list_only_even = [i ** 2 for i in old_list if i % 2 == 0]
 print(new_list_only_even)
+
+# Operations on objects
+type('My string')
+mem_allocated_int = 123
+id(mem_allocated_int)
+
+new_array = [1,2,3,90]
+id(new_array)
+new_array.append(333)
+id(new_array)
