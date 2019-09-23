@@ -14,7 +14,13 @@ As of some one gently rapping, rapping at my chamber door.
 “’Tis some visitor,” I muttered, “tapping at my chamber door—
             Only this and nothing more.”""")
 
+def repeat_sentence(sentence, loops=10):
+    for _ in range(loops):
+        print(sentence)
+
 # main method
 if __name__ == '__main__':
     sing_a_song()
     read_a_poem()
+    repeat_sentence('Default loops')
+    repeat_sentence('Loop me 3 times', 3)
