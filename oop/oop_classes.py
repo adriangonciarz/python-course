@@ -9,6 +9,9 @@ class User:
         self.email = email
         self.user_type = user_type
 
+    def __del__(self):
+        print(f'{self.first_name} says bye bye!')
+
     # classical setter
     def set_first_name(self, fname):
         self.first_name = fname
