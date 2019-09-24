@@ -16,13 +16,14 @@
 ### Project 3 - Cart Items
 Come up with an idea of a simple Product Cart for an online store. 
 You should design two classes: `Cart` and `Product`. 
-Product should have name (string) and price (float).
 #### Product
-The initial state of the cart is empty. Max number of products in cart is 10. 
+Product should have name (string) and price (float).
 #### Cart
-One should be able to add an item to cart. One should be able to get the total price of cart by calculating sum of all prices of items in cart. 
+The initial state of the cart is empty. Max number of products in cart is 10. Trying to add more than 10 items should throw error.
+One should be able to add an item to cart (single or multiple).
 One should be able to get all the names of items in cart.
-One should be able to add a special discount to cart: -20% if they provide a code 'XYZ123'.
+One should be able to apply a special discount to cart: -20% if they provide a code 'XYZ123'. If the code is invalid - an error should be raised.
+One should be able to get the total price of cart by calculating sum of all prices of items in cart. Discount should be included if applied properly
 
 
 
