@@ -34,8 +34,8 @@ Now find a way to replace first and last element in the list
 Create dictionary containing user data:
 ```
 {
-    'firtname': 'mike',
-    'lastname': 'skinner',
+    'first_name': 'mike',
+    'last_name': 'skinner',
     'email': 'mikey@example.com'
 }
 ```
