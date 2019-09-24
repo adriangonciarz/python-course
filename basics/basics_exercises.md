@@ -50,9 +50,9 @@ firstnames = ['Adam', 'Katy', 'Mike', 'Jenna', 'Jim', 'Patty']
 lastnames = ['Smith', 'Connor', 'Tyler', 'Bonham', 'McCreddy', 'Jameson']
 ```
 Loop 10 times to prepare an array of dictionaries with 10 elements. Each dictionary have to contain the following:
-    * `firstname` -> random element from the list `firstnames`
-    * `lastname` -> random element from the list `lastnames`
-    * `email` -> of the form `firstname.lastname@example.com`
+* `firstname` -> random element from the list `firstnames`
+* `lastname` -> random element from the list `lastnames`
+* `email` -> of the form `firstname.lastname@example.com`
 Afterwards, print all emails in the list.
 
 ### Exercise 4 - if/else clause
