@@ -1,0 +1,17 @@
+[
+  {
+    "city": "Kraków",
+    "zipcode": "30-383",
+    "state": "Małopolskie"
+  },
+  {
+    "city": "Warszawa",
+    "zipcode": "00-001",
+    "state": "Mazowieckie"
+  },
+  {
+    "city": "Łódź",
+    "zipcode": "90-003",
+    "state": "Łódzkie"
+  }
+]
