@@ -1,9 +1,11 @@
-http://book.pythontips.com/en/latest/
+[http://book.pythontips.com/en/latest/]
 
-https://realpython.com/operator-function-overloading/
+[https://automatetheboringstuff.com/]
 
-https://www.w3schools.com/python/python_lambda.asp
+[https://erlerobotics.gitbooks.io/erle-robotics-learning-python-gitbook-free (python2)]
 
-https://automatetheboringstuff.com/
+[https://legacy.gitbook.com/book/swaroopch/byte-of-python/details]
 
-https://erlerobotics.gitbooks.io/erle-robotics-learning-python-gitbook-free
+[https://realpython.com/operator-function-overloading/]
+
+[https://www.w3schools.com/python/python_lambda.asp]
