@@ -31,6 +31,7 @@ class StoreItem:
     def name(self, value):
         self._name = value
 
+
 if __name__ == '__main__':
     apple = StoreItem('Red Apple')
     apple.item_id = 1
