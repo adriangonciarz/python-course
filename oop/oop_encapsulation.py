@@ -21,6 +21,7 @@ class Car:
     def __set_max_speed(self):
         self.__max_speed = 200
 
+
 if __name__ == '__main__':
     alfa_romeo = Car()
     alfa_romeo.__max_speed = 300
@@ -28,4 +29,3 @@ if __name__ == '__main__':
 
     print(alfa_romeo.speed)
     print(str(alfa_romeo))
-
