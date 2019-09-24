@@ -41,7 +41,7 @@ Create dictionary containing user data:
 ```
 Add new key/value pair to the dictionary: `'city': 'London'`
 
-Print all keys in the dictionary. Make the values for `firstname, lastname and city` capitalized.
+Print all keys in the dictionary. Make the values for `first_name, last_name and city` capitalized.
 
 ### Exercise 3 - loops
 Having given the following arrays of data:
