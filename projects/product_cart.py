@@ -37,6 +37,13 @@ class Cart:
     def get_item_names(self):
         return [p.name for p in self.products]
 
+    def is_discounted(self):
+        return self.discounted
+
+    @property
+    def products_count(self):
+        return len(self.products)
+
     def _can_add_items_to_cart(self, no_of_items):
         if len(self.products) + no_of_items <= self.max_items:
             return True
