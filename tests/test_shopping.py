@@ -27,12 +27,11 @@ class TestCart:
         c = Cart()
         assert c.is_discounted is False
 
-    def test_adding_single_product(self):
+    def test_adding_single_product(self, single_product):
         c = Cart()
-        p = Product(fake.ean13(), round(random.random(), 2))
-        c.add_products(p)
-        assert c.get_item_names() == [p.name]
-        assert c.calculate_total() == p.price
+        c.add_products(single_product)
+        assert c.get_item_names() == [single_product.name]
+        assert c.calculate_total() == single_product.price
 
     def test_adding_multiple_products(self):
         c = Cart()
