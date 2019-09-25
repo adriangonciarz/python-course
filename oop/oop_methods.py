@@ -6,6 +6,7 @@ A pile of old metal, a radiant blur
 Scars in the country, the summer and her"""
     )
 
+
 def read_a_poem():
     print("""Once upon a midnight dreary, while I pondered, weak and weary,
 Over many a quaint and curious volume of forgotten lore—
@@ -14,15 +15,20 @@ As of some one gently rapping, rapping at my chamber door.
 “’Tis some visitor,” I muttered, “tapping at my chamber door—
             Only this and nothing more.”""")
 
+
 def repeat_sentence(sentence, loops=10):
     for _ in range(loops):
         print(sentence)
 
+
 def split_in_half(sentence):
     sentence_lenght = len(sentence)
-    part_a = sentence[-sentence_lenght:-sentence_lenght//2]
-    part_b = sentence[-sentence_lenght//2::]
+    part_a = sentence[-sentence_lenght:-sentence_lenght // 2]
+    part_b = sentence[-sentence_lenght // 2::]
     return part_a, part_b
+
+print(repr(__name__))
+
 
 # main method
 if __name__ == '__main__':

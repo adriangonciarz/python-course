@@ -1,56 +1,90 @@
+from faker import Faker
+
+fake = Faker('pl_PL')
+
+
+class UserNotLoggedInException(Exception):
+    pass
+
+
 class User:
-    # Class variables
-    company = 'My Bank'
+    api_key = 'jogRKWGfvNdgaR96RKPo2nYchLyPuXmu'
+    company = 'RBS'
 
-    # constructor
-    def __init__(self, fname, lname, email, user_type=None):
-        self.first_name = fname
-        self.last_name = lname
+    def __init__(self, email):
         self.email = email
-        self.user_type = user_type
+        self._first_name = fake.first_name()
+        self._last_name = fake.last_name()
+        self.__password = fake.password(length=20)
+        self.__logged = False
 
-    def __del__(self):
-        print(f'{self.first_name} says bye bye!')
+    @property
+    def first_name(self):
+        return self._first_name
 
-    # classical setter
-    def set_first_name(self, fname):
-        self.first_name = fname
+    @first_name.setter
+    def first_name(self, name):
+        self._first_name = name
 
-    # classical getter
-    def get_first_name(self):
-        return self.first_name
+    @property
+    def last_name(self):
+        return self._last_name
 
-    def is_privileged(self):
-        if self.user_type == 'admin':
-            return True
-        else:
-            return False
+    @last_name.setter
+    def last_name(self, name):
+        self._last_name = name
+
+    def login(self, pwd):
+        self.__logged = (pwd == self.__password)
+
+    @property
+    def is_logged(self):
+        return self.__logged
+
+    def set_password(self, key, pwd):
+        if self.api_key == key:
+            self.__password = pwd
+
+    @staticmethod
+    def say_hello():
+        print('Hello! Nice to meet you!')
 
     @classmethod
-    def present_company(cls):
-        print(f'Hey! I work at {cls.company}!')
+    def describe_company(cls):
+        print(f'{cls.company}')
+
+    def pay(self):
+        if self.__logged:
+            print('I paid your bill')
+        else:
+            raise UserNotLoggedInException('User is not logged in and cannot pay!')
+
 
 class Admin(User):
-    def __init__(self, fname, lname, email):
-        super().__init__(fname, lname, email, user_type='ADMIN')
-
-
-class Manager(User):
-    def __init__(self, fname, lname, email):
-        super().__init__(fname, lname, email, user_type='MANAGER')
+    def __init__(self, email, privileges):
+        super().__init__(email)
+        self.privileges = privileges
 
 
 if __name__ == '__main__':
-    u1 = User('Katy', 'Bills', 'kb@example.com')
-    u2 = User('John', 'Williams', 'jwilliams2@example.com')
+    u = User('agonciarz@example.com')
+    print(u.first_name)
+    u.first_name = 'Krzysztof'
+    u.last_name = 'Ścierański'
+    print(u.first_name)
+    print(u.last_name)
 
-    print(u1.get_first_name())
-    u2.set_first_name('Johan')
-    print(u2.get_first_name())
+    u.pay()
 
-    a1 = Admin('Sophie', 'Tyler', 'sophietyler34@example.com')
-    print(f'User: {a1.email} privilege status is {a1.is_privileged()}')
+    print(u.is_logged)
+    u.login('asdasd')
+    print(u.is_logged)
+    u.set_password(key='asdasd', pwd='haslo123')
+    u.login('haslo123')
+    print(u.is_logged)
+    u.set_password(key='jogRKWGfvNdgaR96RKPo2nYchLyPuXmu', pwd='haslo123')
+    u.login('haslo123')
+    print(u.is_logged)
 
-    m1 = Manager('Frank', 'Smith', 'f2s3@example.com')
-    m1.present_company()
-    u1.present_company()
+    u.say_hello()
+    u.describe_company()
