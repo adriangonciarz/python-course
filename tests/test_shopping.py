@@ -2,7 +2,7 @@ import random
 
 import pytest
 
-from projects.product_cart import Product, Cart, NoSpaceInCartError
+from projects.product_cart import Product, Cart, NoSpaceInCartError, CodeInvalidError
 from faker import Faker
 
 fake = Faker()
@@ -61,7 +61,8 @@ class TestCart:
 
     def test_apply_invalid_discount(self):
         c = Cart()
-        c.apply_discount('wrong123')
+        with pytest.raises(CodeInvalidError):
+            c.apply_discount('wrong123')
         assert c.is_discounted() is False
 
     def test_calculate_with_discount(self):
