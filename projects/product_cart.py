@@ -9,6 +9,7 @@ class CodeInvalidError(Exception):
 class Cart:
     max_items = 10
     promo_code = 'XYZ123'
+    code_factor = 0.8
 
     def __init__(self):
         self.products = []
@@ -23,7 +24,7 @@ class Cart:
     def calculate_total(self):
         total_items_price = sum([p.price for p in self.products])
         if self.discounted:
-            return 0.8 * total_items_price
+            return self.code_factor * total_items_price
         else:
             return total_items_price
 
