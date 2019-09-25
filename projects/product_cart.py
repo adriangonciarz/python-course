@@ -15,7 +15,7 @@ class Cart:
         self.discounted = False
 
     def add_product(self, product):
-        if len(self.products) <= self.max_items:
+        if len(self.products) < self.max_items:
             self.products.append(product)
         else:
             raise CartFullError('The cart is already full!')
