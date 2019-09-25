@@ -23,9 +23,9 @@ class TestCart:
         c = Cart()
         assert c.products_count == 0
 
-    def test_new_cart_not_discounted(self):
+    def test_new_cart_is_not_discounted(self):
         c = Cart()
-        assert c.is_discounted() is False
+        assert c.is_discounted is False
 
     def test_adding_single_product(self):
         c = Cart()
@@ -57,13 +57,13 @@ class TestCart:
     def test_apply_valid_discount(self):
         c = Cart()
         c.apply_discount('XYZ123')
-        assert c.is_discounted() is True
+        assert c.is_discounted is True
 
     def test_apply_invalid_discount(self):
         c = Cart()
         with pytest.raises(CodeInvalidError):
             c.apply_discount('wrong123')
-        assert c.is_discounted() is False
+        assert c.is_discounted is False
 
     def test_calculate_with_discount(self):
         c = Cart()

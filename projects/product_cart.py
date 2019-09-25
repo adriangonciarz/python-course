@@ -37,6 +37,10 @@ class Cart:
     def get_item_names(self):
         return [p.name for p in self.products]
 
+    def clear(self):
+        self.products.clear()
+
+    @property
     def is_discounted(self):
         return self.discounted
 
