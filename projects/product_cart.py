@@ -1,4 +1,4 @@
-class CartFullError(Exception):
+class NoSpaceInCartError(Exception):
     pass
 
 
@@ -15,16 +15,10 @@ class Cart:
         self.discounted = False
 
     def add_products(self, products):
-        if isinstance(products, Product) and self._can_add_products_to_cart(1):
+        if isinstance(products, Product) and self._can_add_items_to_cart(1):
             self.products.append(products)
-        elif isinstance(products, list) and self._can_add_products_to_cart(len(products)):
+        elif isinstance(products, list) and self._can_add_items_to_cart(len(products)):
             self.products.extend(products)
-
-    def _can_add_products_to_cart(self, number_of_products):
-        if len(self.products) + number_of_products <= self.max_items:
-            return True
-        else:
-            raise CartFullError('The cart is already full!')
 
     def calculate_total(self):
         total_items_price = sum([p.price for p in self.products])
@@ -42,6 +36,12 @@ class Cart:
     def get_item_names(self):
         return [p.name for p in self.products]
 
+    def _can_add_items_to_cart(self, no_of_items):
+        if len(self.products) + no_of_items <= self.max_items:
+            return True
+        else:
+            raise NoSpaceInCartError('The cart has not enough space for products')
+
 
 class Product:
     def __init__(self, name, price):
@@ -57,24 +57,15 @@ class Product:
         return self._name
 
 
-def generate_products(number_of_products):
-    return [Product('asd', 33.99) for _ in range(number_of_products)]
-
-
 if __name__ == '__main__':
     dress = Product('Black Dress', 139.99)
     trousers = Product('Jeans Trousers', 229.99)
     tshirt = Product('T-shirt', 139.99)
 
-    expected_price = (139.99 + 229.99 + 139.99) * 0.8
-
     cart = Cart()
-
-    cart.add_products(dress)
-    cart.add_products(generate_products(3))
-    cart.add_products(generate_products(7))
-
+    cart.add_product(dress)
+    cart.add_product(trousers)
+    cart.add_product(tshirt)
     cart.apply_discount('XYZ123')
     total = cart.calculate_total()
     print(total)
-    print(expected_price)
